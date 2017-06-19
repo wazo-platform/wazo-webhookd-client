@@ -1,0 +1,5 @@
+xivo-webhookd-client (1.0-1) xivo-dev; urgency=low
+
+  * Initial release.
+
+ -- Wazo Maintainers <dev@wazo.community>  Mon, 19 Jun 2017 13:49:44 -0400
