@@ -1,4 +1,4 @@
-xivo-webhookd-client (1.0-1) xivo-dev; urgency=low
+wazo-webhookd-client (1.0-1) xivo-dev; urgency=low
 
   * Initial release.
 
