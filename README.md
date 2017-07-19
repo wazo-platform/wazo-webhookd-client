@@ -11,6 +11,21 @@ from wazo_webhookd_client import Client
 client = Client('localhost', verify_certificate=False, token=<xivo-auth-token>)
 ```
 
+### Add a new hook subscription
+
+```python
+subscription = {
+    'name': 'test',
+    'service': 'http',
+    'config': {
+        'url': 'http://test.example.com',
+        'method': 'get'
+    },
+    'events': ['confd.users.create']
+}
+client.subscriptions.create(subscription)
+```
+
 ### Getting the service configuration
 
 ```python
