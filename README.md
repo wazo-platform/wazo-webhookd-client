@@ -14,7 +14,7 @@ client = Client('localhost', verify_certificate=False, token=<xivo-auth-token>)
 ### Getting the service configuration
 
 ```python
-client.config()
+client.config.get()
 ```
 
 ## Debian package
