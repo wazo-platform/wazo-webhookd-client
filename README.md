@@ -11,6 +11,8 @@ from wazo_webhookd_client import Client
 client = Client('localhost', verify_certificate=False, token=<xivo-auth-token>)
 ```
 
+## Subscriptions
+
 ### Listing hook subscriptions
 
 ```python
@@ -49,6 +51,8 @@ subscription = client.subscriptions.edit(subscription_uuid, new_subscription)
 ```python
 client.subscriptions.delete(subscription_uuid)
 ```
+
+## Config
 
 ### Getting the service configuration
 
