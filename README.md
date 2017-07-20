@@ -11,6 +11,12 @@ from wazo_webhookd_client import Client
 client = Client('localhost', verify_certificate=False, token=<xivo-auth-token>)
 ```
 
+### Listing hook subscriptions
+
+```python
+client.subscriptions.list()
+```
+
 ### Add a new hook subscription
 
 ```python

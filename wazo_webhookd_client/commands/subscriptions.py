@@ -14,3 +14,8 @@ class SubscriptionsCommand(WebhookdCommand):
         r = self.session.post(self.base_url, json=subscription, headers=self._headers)
         self.raise_from_response(r)
         return r.json()
+
+    def list(self):
+        r = self.session.get(self.base_url, headers=self._headers)
+        self.raise_from_response(r)
+        return r.json()
