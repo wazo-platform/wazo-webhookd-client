@@ -32,6 +32,12 @@ subscription = {
 client.subscriptions.create(subscription)
 ```
 
+### Get hook subscription
+
+```python
+subscription = client.subscriptions.get(subscription_uuid)
+```
+
 ### Delete hook subscription
 
 ```python
