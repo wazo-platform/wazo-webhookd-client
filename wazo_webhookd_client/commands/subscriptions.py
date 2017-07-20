@@ -25,6 +25,11 @@ class SubscriptionsCommand(WebhookdCommand):
         self.raise_from_response(r)
         return r.json()
 
+    def edit(self, subscription_uuid, subscription):
+        r = self.session.put('{base}/{id}'.format(base=self.base_url, id=subscription_uuid), json=subscription, headers=self._headers)
+        self.raise_from_response(r)
+        return r.json()
+
     def delete(self, subscription_uuid):
         r = self.session.delete('{base}/{id}'.format(base=self.base_url, id=subscription_uuid), headers=self._headers)
         self.raise_from_response(r)
