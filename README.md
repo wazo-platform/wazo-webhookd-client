@@ -32,6 +32,12 @@ subscription = {
 client.subscriptions.create(subscription)
 ```
 
+### Delete hook subscription
+
+```python
+client.subscriptions.delete(subscription_uuid)
+```
+
 ### Getting the service configuration
 
 ```python
