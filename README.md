@@ -11,10 +11,53 @@ from wazo_webhookd_client import Client
 client = Client('localhost', verify_certificate=False, token=<xivo-auth-token>)
 ```
 
+## Subscriptions
+
+### Listing hook subscriptions
+
+```python
+client.subscriptions.list()
+```
+
+### Add a new hook subscription
+
+```python
+subscription = {
+    'name': 'test',
+    'service': 'http',
+    'config': {
+        'url': 'http://test.example.com',
+        'method': 'get'
+    },
+    'events': ['confd.users.create']
+}
+client.subscriptions.create(subscription)
+```
+
+### Get hook subscription
+
+```python
+subscription = client.subscriptions.get(subscription_uuid)
+```
+
+### Edit hook subscription
+
+```python
+subscription = client.subscriptions.edit(subscription_uuid, new_subscription)
+```
+
+### Delete hook subscription
+
+```python
+client.subscriptions.delete(subscription_uuid)
+```
+
+## Config
+
 ### Getting the service configuration
 
 ```python
-client.config()
+client.config.get()
 ```
 
 ## Debian package
