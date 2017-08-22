@@ -24,6 +24,7 @@ setup(
         'wazo_webhookd_client.commands': [
             'config = wazo_webhookd_client.commands.config:ConfigCommand',
             'subscriptions = wazo_webhookd_client.commands.subscriptions:SubscriptionsCommand',
+            'status = wazo_webhookd_client.commands.status:StatusCommand',
         ],
     }
 )
