@@ -52,6 +52,7 @@ subscription = client.subscriptions.update(subscription_uuid, new_subscription)
 
 ```python
 client.subscriptions.delete(subscription_uuid)
+client.subscriptions.delete_as_user(subscription_uuid)  # same thing, but only the subscriptions regarding the user making the request are considered
 ```
 
 ## Config

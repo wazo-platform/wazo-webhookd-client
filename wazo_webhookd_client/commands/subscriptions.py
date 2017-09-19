@@ -47,6 +47,11 @@ class SubscriptionsCommand(WebhookdCommand):
         r = self.session.delete('{base}/{id}'.format(base=self.base_url, id=subscription_uuid), headers=self._ro_headers)
         self.raise_from_response(r)
 
+    def delete_as_user(self, subscription_uuid):
+        url = self._client.url('users', 'me', self.resource, subscription_uuid)
+        r = self.session.delete(url, headers=self._ro_headers)
+        self.raise_from_response(r)
+
     def list_services(self):
         r = self.session.get('{base}/services'.format(base=self.base_url), headers=self._ro_headers)
         self.raise_from_response(r)
