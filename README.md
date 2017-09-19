@@ -32,6 +32,7 @@ subscription = {
     'events': ['confd.users.create']
 }
 client.subscriptions.create(subscription)
+client.subscriptions.create_as_user(subscription)  # same thing, but only the events regarding the user making the request are considered
 ```
 
 ### Get hook subscription
