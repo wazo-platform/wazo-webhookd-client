@@ -47,6 +47,8 @@ subscription = client.subscriptions.get_as_user(subscription_uuid)  # same thing
 
 ```python
 subscription = client.subscriptions.update(subscription_uuid, new_subscription)
+subscription = client.subscriptions.update_as_user(subscription_uuid, new_subscription)  # same thing, but only the subscriptions regarding the user making the request are considered
+
 ```
 
 ### Delete hook subscription
