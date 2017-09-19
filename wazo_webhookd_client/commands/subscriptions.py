@@ -38,6 +38,12 @@ class SubscriptionsCommand(WebhookdCommand):
         self.raise_from_response(r)
         return r.json()
 
+    def get_as_user(self, subscription_uuid):
+        url = self._client.url('users', 'me', self.resource, subscription_uuid)
+        r = self.session.get(url, headers=self._ro_headers)
+        self.raise_from_response(r)
+        return r.json()
+
     def update(self, subscription_uuid, subscription):
         r = self.session.put('{base}/{id}'.format(base=self.base_url, id=subscription_uuid), json=subscription, headers=self._rw_headers)
         self.raise_from_response(r)

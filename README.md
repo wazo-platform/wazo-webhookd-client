@@ -40,6 +40,7 @@ client.subscriptions.create_as_user(subscription)  # same thing, but only the ev
 
 ```python
 subscription = client.subscriptions.get(subscription_uuid)
+subscription = client.subscriptions.get_as_user(subscription_uuid)  # same thing, but only the subscriptions regarding the user making the request are considered
 ```
 
 ### Update hook subscription
