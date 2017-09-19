@@ -17,6 +17,7 @@ client = Client('localhost', verify_certificate=False, token=<xivo-auth-token>)
 
 ```python
 client.subscriptions.list()
+client.subscriptions.list_as_user()  # same thing, but only the subscriptions regarding the user making the request are considered
 ```
 
 ### Add a new hook subscription
