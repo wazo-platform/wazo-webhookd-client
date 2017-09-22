@@ -17,6 +17,7 @@ client = Client('localhost', verify_certificate=False, token=<xivo-auth-token>)
 
 ```python
 client.subscriptions.list()
+client.subscriptions.list_as_user()  # same thing, but only the subscriptions regarding the user making the request are considered
 ```
 
 ### Add a new hook subscription
@@ -32,24 +33,29 @@ subscription = {
     'events': ['confd.users.create']
 }
 client.subscriptions.create(subscription)
+client.subscriptions.create_as_user(subscription)  # same thing, but only the events regarding the user making the request are considered
 ```
 
 ### Get hook subscription
 
 ```python
 subscription = client.subscriptions.get(subscription_uuid)
+subscription = client.subscriptions.get_as_user(subscription_uuid)  # same thing, but only the subscriptions regarding the user making the request are considered
 ```
 
 ### Update hook subscription
 
 ```python
 subscription = client.subscriptions.update(subscription_uuid, new_subscription)
+subscription = client.subscriptions.update_as_user(subscription_uuid, new_subscription)  # same thing, but only the subscriptions regarding the user making the request are considered
+
 ```
 
 ### Delete hook subscription
 
 ```python
 client.subscriptions.delete(subscription_uuid)
+client.subscriptions.delete_as_user(subscription_uuid)  # same thing, but only the subscriptions regarding the user making the request are considered
 ```
 
 ## Config

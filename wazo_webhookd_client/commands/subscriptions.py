@@ -16,8 +16,20 @@ class SubscriptionsCommand(WebhookdCommand):
         self.raise_from_response(r)
         return r.json()
 
+    def create_as_user(self, subscription):
+        url = self._client.url('users', 'me', self.resource)
+        r = self.session.post(url, json=subscription, headers=self._rw_headers)
+        self.raise_from_response(r)
+        return r.json()
+
     def list(self):
         r = self.session.get(self.base_url, headers=self._ro_headers)
+        self.raise_from_response(r)
+        return r.json()
+
+    def list_as_user(self):
+        url = self._client.url('users', 'me', self.resource)
+        r = self.session.get(url, headers=self._ro_headers)
         self.raise_from_response(r)
         return r.json()
 
@@ -26,13 +38,30 @@ class SubscriptionsCommand(WebhookdCommand):
         self.raise_from_response(r)
         return r.json()
 
+    def get_as_user(self, subscription_uuid):
+        url = self._client.url('users', 'me', self.resource, subscription_uuid)
+        r = self.session.get(url, headers=self._ro_headers)
+        self.raise_from_response(r)
+        return r.json()
+
     def update(self, subscription_uuid, subscription):
         r = self.session.put('{base}/{id}'.format(base=self.base_url, id=subscription_uuid), json=subscription, headers=self._rw_headers)
         self.raise_from_response(r)
         return r.json()
 
+    def update_as_user(self, subscription_uuid, subscription):
+        url = self._client.url('users', 'me', self.resource, subscription_uuid)
+        r = self.session.put(url, json=subscription, headers=self._rw_headers)
+        self.raise_from_response(r)
+        return r.json()
+
     def delete(self, subscription_uuid):
         r = self.session.delete('{base}/{id}'.format(base=self.base_url, id=subscription_uuid), headers=self._ro_headers)
+        self.raise_from_response(r)
+
+    def delete_as_user(self, subscription_uuid):
+        url = self._client.url('users', 'me', self.resource, subscription_uuid)
+        r = self.session.delete(url, headers=self._ro_headers)
         self.raise_from_response(r)
 
     def list_services(self):
