@@ -8,7 +8,7 @@ A python client library to access wazo-webhookd
 
 ```python
 from wazo_webhookd_client import Client
-client = Client('localhost', verify_certificate=False, token=<xivo-auth-token>)
+client = Client('localhost', verify_certificate=False, token=<auth-token>)
 ```
 
 ## Subscriptions
