@@ -22,12 +22,18 @@ class SubscriptionsCommand(WebhookdCommand):
         self.raise_from_response(r)
         return r.json()
 
-    def list(self):
-        r = self.session.get(self.base_url, headers=self._ro_headers)
+    def list(self, search_metadata=None):
+        params = {}
+        if search_metadata:
+            params['search_metadata'] = self._metadata_params(search_metadata)
+        r = self.session.get(self.base_url, params=params, headers=self._ro_headers)
         self.raise_from_response(r)
         return r.json()
 
-    def list_as_user(self):
+    def list_as_user(self, search_metadata=None):
+        params = {}
+        if search_metadata:
+            params['search_metadata'] = self._metadata_params(search_metadata)
         url = self._client.url('users', 'me', self.resource)
         r = self.session.get(url, headers=self._ro_headers)
         self.raise_from_response(r)
@@ -68,3 +74,6 @@ class SubscriptionsCommand(WebhookdCommand):
         r = self.session.get('{base}/services'.format(base=self.base_url), headers=self._ro_headers)
         self.raise_from_response(r)
         return r.json()
+
+    def _metadata_params(self, search_metadata):
+        return ['{}:{}'.format(key, value) for key, value in search_metadata.items()]
