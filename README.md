@@ -43,6 +43,12 @@ subscription = client.subscriptions.get(subscription_uuid)
 subscription = client.subscriptions.get_as_user(subscription_uuid)  # same thing, but only the subscriptions regarding the user making the request are considered
 ```
 
+### Get hook subscription logs
+
+```python
+client.subscriptions.get_logs(subscription_uuid)
+```
+
 ### Update hook subscription
 
 ```python
