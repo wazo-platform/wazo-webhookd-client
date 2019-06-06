@@ -22,10 +22,12 @@ class SubscriptionsCommand(WebhookdCommand):
         self.raise_from_response(r)
         return r.json()
 
-    def list(self, search_metadata=None):
+    def list(self, search_metadata=None, recurse=False):
         params = {}
         if search_metadata:
             params['search_metadata'] = self._metadata_params(search_metadata)
+        if recurse:
+            params['recurse'] = True
         r = self.session.get(self.base_url, params=params, headers=self._ro_headers)
         self.raise_from_response(r)
         return r.json()
