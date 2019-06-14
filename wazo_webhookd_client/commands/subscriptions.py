@@ -79,3 +79,9 @@ class SubscriptionsCommand(WebhookdCommand):
 
     def _metadata_params(self, search_metadata):
         return ['{}:{}'.format(key, value) for key, value in search_metadata.items()]
+
+    def get_logs(self, subscription_uuid):
+        url = self._client.url(self.resource, subscription_uuid, 'logs')
+        r = self.session.get(url, headers=self._ro_headers)
+        self.raise_from_response(r)
+        return r.json()
