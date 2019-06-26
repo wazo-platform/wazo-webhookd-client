@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2017 The Wazo Authors  (see AUTHORS file)
+# Copyright 2017-2019 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 from wazo_webhookd_client.command import WebhookdCommand
@@ -12,7 +12,9 @@ class SubscriptionsCommand(WebhookdCommand):
     _rw_headers = {'Accept': 'application/json', 'Content-Type': 'application/json'}
 
     def create(self, subscription):
-        r = self.session.post(self.base_url, json=subscription, headers=self._rw_headers)
+        r = self.session.post(
+            self.base_url, json=subscription, headers=self._rw_headers
+        )
         self.raise_from_response(r)
         return r.json()
 
@@ -42,7 +44,10 @@ class SubscriptionsCommand(WebhookdCommand):
         return r.json()
 
     def get(self, subscription_uuid):
-        r = self.session.get('{base}/{id}'.format(base=self.base_url, id=subscription_uuid), headers=self._ro_headers)
+        r = self.session.get(
+            '{base}/{id}'.format(base=self.base_url, id=subscription_uuid),
+            headers=self._ro_headers,
+        )
         self.raise_from_response(r)
         return r.json()
 
@@ -53,7 +58,11 @@ class SubscriptionsCommand(WebhookdCommand):
         return r.json()
 
     def update(self, subscription_uuid, subscription):
-        r = self.session.put('{base}/{id}'.format(base=self.base_url, id=subscription_uuid), json=subscription, headers=self._rw_headers)
+        r = self.session.put(
+            '{base}/{id}'.format(base=self.base_url, id=subscription_uuid),
+            json=subscription,
+            headers=self._rw_headers,
+        )
         self.raise_from_response(r)
         return r.json()
 
@@ -64,7 +73,10 @@ class SubscriptionsCommand(WebhookdCommand):
         return r.json()
 
     def delete(self, subscription_uuid):
-        r = self.session.delete('{base}/{id}'.format(base=self.base_url, id=subscription_uuid), headers=self._ro_headers)
+        r = self.session.delete(
+            '{base}/{id}'.format(base=self.base_url, id=subscription_uuid),
+            headers=self._ro_headers,
+        )
         self.raise_from_response(r)
 
     def delete_as_user(self, subscription_uuid):
@@ -73,7 +85,9 @@ class SubscriptionsCommand(WebhookdCommand):
         self.raise_from_response(r)
 
     def list_services(self):
-        r = self.session.get('{base}/services'.format(base=self.base_url), headers=self._ro_headers)
+        r = self.session.get(
+            '{base}/services'.format(base=self.base_url), headers=self._ro_headers
+        )
         self.raise_from_response(r)
         return r.json()
 
