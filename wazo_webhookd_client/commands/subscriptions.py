@@ -94,8 +94,20 @@ class SubscriptionsCommand(WebhookdCommand):
     def _metadata_params(self, search_metadata):
         return ['{}:{}'.format(key, value) for key, value in search_metadata.items()]
 
-    def get_logs(self, subscription_uuid):
+    def get_logs(self, subscription_uuid, direction=None, order=None,
+                 limit=None, offset=None, from_date=None):
+        params = {}
+        if direction is not None:
+            params['direction'] = direction
+        if order is not None:
+            params['order'] = order
+        if limit is not None:
+            params['limit'] = limit
+        if offset is not None:
+            params['offset'] = offset
+        if from_date is not None:
+            params['from_date'] = from_date
         url = self._client.url(self.resource, subscription_uuid, 'logs')
-        r = self.session.get(url, headers=self._ro_headers)
+        r = self.session.get(url, headers=self._ro_headers, params=params)
         self.raise_from_response(r)
         return r.json()
