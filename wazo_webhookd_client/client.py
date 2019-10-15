@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 
-from xivo_lib_rest_client.client import BaseClient
+from wazo_lib_rest_client.client import BaseClient
 
 
 class WebhookdClient(BaseClient):
