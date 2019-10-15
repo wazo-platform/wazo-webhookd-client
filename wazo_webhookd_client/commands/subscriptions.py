@@ -94,8 +94,15 @@ class SubscriptionsCommand(WebhookdCommand):
     def _metadata_params(self, search_metadata):
         return ['{}:{}'.format(key, value) for key, value in search_metadata.items()]
 
-    def get_logs(self, subscription_uuid, direction=None, order=None,
-                 limit=None, offset=None, from_date=None):
+    def get_logs(
+        self,
+        subscription_uuid,
+        direction=None,
+        order=None,
+        limit=None,
+        offset=None,
+        from_date=None,
+    ):
         params = {}
         if direction is not None:
             params['direction'] = direction
