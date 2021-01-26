@@ -72,6 +72,17 @@ client.subscriptions.delete_as_user(subscription_uuid)  # same thing, but only t
 client.config.get()
 ```
 
+### Updating the service configuration
+
+```python
+config_patch = {
+    'op': 'replace',
+    'path': '/debug',
+    'value': True,
+}
+client.config.patch(config_patch)
+```
+
 ## Debian package
 
 Follow the following steps to build a debian package for wazo-webhookd-client manually.
