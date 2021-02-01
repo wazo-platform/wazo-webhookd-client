@@ -18,6 +18,8 @@ class ConfigCommand(WebhookdCommand):
         return r.json()
 
     def patch(self, config_patch):
-        r = self.session.patch(self.base_url, headers=self._rw_headers, json=config_patch)
+        r = self.session.patch(
+            self.base_url, headers=self._rw_headers, json=config_patch
+        )
         self.raise_from_response(r)
         return r.json()
