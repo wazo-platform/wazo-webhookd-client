@@ -1,11 +1,12 @@
-# Copyright 2017-2022 The Wazo Authors  (see the AUTHORS file)
+# Copyright 2017-2023 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
+from __future__ import annotations
 
-from requests import HTTPError
+from requests import HTTPError, Response
 
 
 class WebhookdError(HTTPError):
-    def __init__(self, response):
+    def __init__(self, response: Response) -> None:
         try:
             body = response.json()
         except ValueError:

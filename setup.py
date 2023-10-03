@@ -3,8 +3,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 
-from setuptools import setup
-from setuptools import find_packages
+from setuptools import find_packages, setup
 
 setup(
     name='wazo_webhookd_client',
