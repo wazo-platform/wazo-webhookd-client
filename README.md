@@ -83,6 +83,22 @@ config_patch = {
 client.config.patch(config_patch)
 ```
 
+## Push notifications
+
+### Sending a push notification
+
+```python
+push_notification = {
+    'notification_type': 'example_notification',
+    'user_uuid': '06306028-d9eb-4556-97d4-5e9f820309d0',
+    'title': 'Notification title',
+    'body': 'Notification body',
+    'extra': {'key': 'value'},
+}
+client.mobile_notifications.send(push_notification)
+```
+
+
 ## Debian package
 
 Follow the following steps to build a debian package for wazo-webhookd-client manually.
