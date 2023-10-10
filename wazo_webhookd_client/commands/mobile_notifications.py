@@ -2,17 +2,12 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 from __future__ import annotations
 
-from typing import TypedDict, Any
+from typing import TYPE_CHECKING
 
 from wazo_webhookd_client.command import WebhookdCommand
 
-
-class NotificationDict(TypedDict):
-    notification_type: str
-    user_uuid: str
-    title: str
-    body: str
-    extra: dict[str, Any]
+if TYPE_CHECKING:
+    from webhookd.plugins.mobile.schema import NotificationDict
 
 
 class MobileNotificationCommand(WebhookdCommand):
