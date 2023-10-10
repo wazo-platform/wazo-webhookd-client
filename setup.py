@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright 2017-2022 The Wazo Authors  (see the AUTHORS file)
+# Copyright 2017-2023 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 
@@ -19,6 +19,10 @@ setup(
             'config = wazo_webhookd_client.commands.config:ConfigCommand',
             'status = wazo_webhookd_client.commands.status:StatusCommand',
             'subscriptions = wazo_webhookd_client.commands.subscriptions:SubscriptionsCommand',
+            (
+                'mobile_notifications = '
+                'wazo_webhookd_client.commands.mobile_notifications:MobileNotificationCommand'
+            ),
         ]
     },
 )
