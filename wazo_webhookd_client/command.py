@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from requests import Response
-
 from wazo_lib_rest_client.command import RESTCommand
 
 from .exceptions import InvalidWebhookdError, WebhookdError, WebhookdServiceUnavailable
